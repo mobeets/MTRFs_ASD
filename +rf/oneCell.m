@@ -1,8 +1,10 @@
 function obj = oneCell(X, Y, D, fitType)
 % X - [nt x nw] - stimulus
 % Y - [nt x 1] - spikes
+% D - [nw x nw] - squared distance matrix for features in X
+% fitType (str) - one of ['ML', 'Ridge', 'ASD']
 % 
-% obj - struct - model fit and scores
+% obj (struct) - model fit and scores
 % 
 
     obj.llstr = 'gauss'; % noise model; could be 'poiss' or 'bern' as well

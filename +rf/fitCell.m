@@ -1,8 +1,11 @@
-function obj = fitCell(stim, neur)
+function obj = fitCell(stim, neur, fitType)
 % 
 % stim = load('data/stim/n20150304a_stim.mat');
 % neur = load('data/neurons/n20150304a_01.mat');
 % 
+    if nargin < 3
+        fitType = 'asd';
+    end
 
     % load trials
     ix = stim.goodtrial;
@@ -18,7 +21,7 @@ function obj = fitCell(stim, neur)
     Y = neur.spikeCount;
 
     X = squeeze(sum(X,2)); % sum across time for now
-    obj = oneCell(X, Y, D, 'ml');
+    obj = rf.oneCell(X, Y, D, fitType);
 
 end
 
