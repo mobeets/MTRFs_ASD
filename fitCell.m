@@ -18,7 +18,7 @@ function obj = fitCell(stim, neur)
     Y = neur.spikeCount;
 
     X = squeeze(sum(X,2)); % sum across time for now
-    obj = oneCell(X, Y, D, 'asd');
+    obj = oneCell(X, Y, D, 'ml');
 
 end
 

@@ -6,7 +6,7 @@ function fits = fitCells(exname, stimdir, neurdir)
         stimdir = '';
     end
     if nargin < 3
-        neurdir = fullfile('data', 'neurons');
+        neurdir = '';
     end
 
     stim = io.loadStim(exname, stimdir);
