@@ -1,8 +1,8 @@
 basedir = '~/code';
-repos = {'mtlip', ... % https://bitbucket.org/jcbyts/mtlip
-    'pdstools', ... % https://github.com/jcbyts/pdstools
-    'neuroglm', ... % https://github.com/jcbyts/neuroglm
-    'mASD', ... % https://github.com/mobeets/mASD
+repos = {'mASD', ... % https://github.com/mobeets/mASD
+%     'mtlip', ... % https://bitbucket.org/jcbyts/mtlip
+%     'pdstools', ... % https://github.com/jcbyts/pdstools
+%     'neuroglm', ... % https://github.com/jcbyts/neuroglm    
 };
 p = path;
 for ii = 1:numel(repos)
