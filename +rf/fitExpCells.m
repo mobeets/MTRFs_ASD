@@ -1,11 +1,11 @@
-function fits = fitCells(exname, stimdir, neurdir, fitType)
+function fits = fitExpCells(exname, stimdir, neurdir, fitType)
 % 
 % exname = 'n20150304a';
 % 
-    if nargin < 2
+    if nargin < 2 || isempty(stimdir)
         stimdir = '';
     end
-    if nargin < 3
+    if nargin < 3 || isempty(neurdir)
         neurdir = '';
     end
     if nargin < 4

@@ -1,4 +1,4 @@
-function obj = oneCell(X, Y, D, fitType)
+function obj = fitLinearModel(X, Y, D, fitType)
 % X - [nt x nw] - stimulus
 % Y - [nt x 1] - spikes
 % D - [nw x nw] - squared distance matrix for features in X
@@ -20,6 +20,8 @@ function obj = oneCell(X, Y, D, fitType)
         obj = reg.getObj_ML_Ridge(X, Y, scoreObj, obj);
     elseif strcmpi(fitType, 'ASD')
         obj = reg.getObj_ASD(X, Y, D, scoreObj, obj);
+    else
+        error(['Unrecognized fitType: ' fitType]);
     end
 
     obj = reg.fitAndScore(X, Y, obj, scoreObj);

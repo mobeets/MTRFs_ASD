@@ -1,8 +1,8 @@
 function rfSingle(xy, wf, sz, cmin)
-    if nargin < 5
+    if nargin < 4
         cmin = nan;
     end
-    if nargin < 4 || isnan(sz)
+    if nargin < 3 || isnan(sz)
         sz = 200;
     end
     clrs = plot.getColors(wf, true, cmin);
