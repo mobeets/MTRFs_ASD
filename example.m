@@ -17,18 +17,21 @@ plot.rfSingle(stim.gaborXY, cur.fit.w);
 
 %% predict spike count for example stim
 
-cur = fits(2);
+cur = fits(1);
 stim = io.loadStim(cur.exname);
 neur = load(cur.neurfn);
 Yh = rf.predict(stim, neur, cur.fit);
+Y = neur.spikeCount;
+[YhAR, wAR] = rf.autoRegressModelSpikes(Yh, Y, 4);
 
 % to pass a stimulus yourself, call:
 %   Yh = rf.predict([], [], cur.fit, stim.pulses);
 
 figure; hold on;
-plot(neur.spikeCount, 'k');
+plot(Y, 'k');
 plot(Yh, 'r');
-legend('Y', 'Yh');
+plot(YhAR, 'b');
+legend('Y', 'Yh', 'YhAR');
 title([cur.exname ' - ' num2str(cur.cellid)]);
 
 %% baseline fits
