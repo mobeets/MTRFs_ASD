@@ -22,6 +22,9 @@ stim = io.loadStim(cur.exname);
 neur = load(cur.neurfn);
 Yh = rf.predict(stim, neur, cur.fit);
 
+% to pass a stimulus yourself, call:
+%   Yh = rf.predict([], [], cur.fit, stim.pulses);
+
 figure; hold on;
 plot(neur.spikeCount, 'k');
 plot(Yh, 'r');
