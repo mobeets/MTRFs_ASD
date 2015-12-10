@@ -3,7 +3,7 @@
 exnames = io.loadExnames();
 fits = struct([]);
 for ii = 1:numel(exnames)
-    exname = exnames{ii};
+    exname = exnames{ii}
     fs = rf.fitExpCells(exname);
     fits = [fits fs];    
 end

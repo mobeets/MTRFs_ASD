@@ -1,4 +1,4 @@
-function fits = fitExpCells(exname, stimdir, neurdir, fitType)
+function fits = fitExpCells(exname, stimdir, neurdir, fitopts)
 % 
 % exname = 'n20150304a';
 % 
@@ -9,7 +9,7 @@ function fits = fitExpCells(exname, stimdir, neurdir, fitType)
         neurdir = '';
     end
     if nargin < 4
-        fitType = 'asd';
+        fitopts = struct();
     end
 
     stim = io.loadStim(exname, stimdir);
@@ -24,7 +24,7 @@ function fits = fitExpCells(exname, stimdir, neurdir, fitType)
         if ~strcmpi(neur.brainArea, 'MT')
             continue;
         end
-        obj = rf.fitCell(stim, neur, fitType);
+        obj = rf.fitCell(stim, neur, fitopts);
 
         ft.neurfn = neurfn;
         ft.exname = neur.exname;
